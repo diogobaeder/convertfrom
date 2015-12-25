@@ -30,3 +30,21 @@ class EntryPointTest(TestCase):
         result = main(['200cm', 'to', 'm'])
 
         self.assertEqual(result, '2.0m')
+
+    @istest
+    def converts_1meter_to_100cm(self):
+        result = main(['1meter', 'to', 'cm'])
+
+        self.assertEqual(result, '100.0cm')
+
+    @istest
+    def converts_1_meter_to_100cm(self):
+        result = main(['1', 'meter', 'to', 'cm'])
+
+        self.assertEqual(result, '100.0cm')
+
+    @istest
+    def converts_1_meter_to_1m(self):
+        result = main(['1', 'meter', 'to', 'meters'])
+
+        self.assertEqual(result, '1.0meters')
