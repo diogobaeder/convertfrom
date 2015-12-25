@@ -18,7 +18,7 @@ def find_multiplier(unit):
     raise KeyError(repr(unit))
 
 
-def main(args):
+def convert(args):
     args = list(args)
     source_tokens = []
     while True:
@@ -39,5 +39,9 @@ def main(args):
     return '{}{}'.format(result, destination_string)
 
 
+def main():
+    print(convert(sys.argv[1:]))
+
+
 if __name__ == '__main__':  # pragma: no cover
-    print(main(sys.argv[1:]))
+    main()
