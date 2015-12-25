@@ -23,4 +23,4 @@ def find_multiplier(unit):
     for key, value in UNIT_MAP.items():
         if unit == key or (isinstance(key, (tuple, list)) and unit in key):
             return value
-    raise KeyError(repr(unit))
+    raise KeyError(unit)
