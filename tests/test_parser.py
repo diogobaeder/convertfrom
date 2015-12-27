@@ -14,3 +14,8 @@ class ArgParserTest(TestCase):
     def cannot_parse_if_less_than_three_arguments(self):
         with self.assertRaises(ConversionError):
             self.parser.parse([])
+
+    @istest
+    def cannot_parse_if_unidentifiable_pattern(self):
+        with self.assertRaises(ConversionError):
+            self.parser.parse(['a', 'to', 'b'])

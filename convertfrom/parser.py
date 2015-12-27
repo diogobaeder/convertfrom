@@ -26,6 +26,9 @@ class ArgParser:
     def get_source_parts(self):
         source_string = self.get_source_string()
         matches = SOURCE_PATTERN.match(source_string)
+        if matches is None:
+            raise ConversionError(
+                'Unidentifiable pattern in source: {}'.format(source_string))
         source_parts = matches.groups()
         return source_parts
 
