@@ -7,7 +7,7 @@ lint:
 	flake8 convertfrom
 
 requirements:
-	pip freeze > requirements.txt
+	pip freeze | grep -v convertfrom > requirements.txt
 
 dev:
 	pip install -r requirements.txt
