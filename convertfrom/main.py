@@ -4,6 +4,10 @@ from convertfrom.converter import Converter
 from convertfrom.parser import ArgParser
 
 
+# For testability
+print = print
+
+
 def convert(args):
     parser = ArgParser()
     converter = Converter()
