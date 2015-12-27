@@ -4,7 +4,7 @@ test:
 	nosetests tests
 
 lint:
-	flake8 convertfrom
+	flake8 convertfrom tests
 
 requirements:
 	pip freeze | grep -v convertfrom > requirements.txt

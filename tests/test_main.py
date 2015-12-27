@@ -1,4 +1,3 @@
-from decimal import Decimal
 from unittest import TestCase
 from unittest.mock import patch
 
@@ -23,7 +22,7 @@ class EntryPointTest(TestCase):
 
     @istest
     @patch('convertfrom.main.convert')
-    def prints_converted_result(self, mock_convert):
+    def exits_on_exceptions(self, mock_convert):
         exception = RuntimeError('oops')
         mock_convert.side_effect = exception
 
