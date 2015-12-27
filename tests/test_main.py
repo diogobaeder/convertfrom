@@ -21,6 +21,15 @@ class EntryPointTest(TestCase):
         mock_print.assert_called_once_with('2b')
         mock_convert.assert_called_once_with(['2a', 'to', 'b'])
 
+    @istest
+    @patch('convertfrom.main.convert')
+    def prints_converted_result(self, mock_convert):
+        exception = RuntimeError('oops')
+        mock_convert.side_effect = exception
+
+        with self.assertRaises(SystemExit):
+            main()
+
 
 class ConvertTest(TestCase):
     @istest
