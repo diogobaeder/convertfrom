@@ -1,6 +1,8 @@
 import re
 from decimal import Decimal
 
+from convertfrom.errors import ConversionError
+
 
 SOURCE_PATTERN = re.compile(r'(\d+)\s*(\w+)')
 
@@ -13,6 +15,8 @@ class ArgParser:
         self.source_unit = None
 
     def parse(self, args):
+        if len(args) < 3:
+            raise ConversionError('Needs at least 3 arguments')
         self.remainings = list(args)
         source_parts = self.get_source_parts()
         self.destination_string = self.remainings[0]

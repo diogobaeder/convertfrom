@@ -1,5 +1,7 @@
 from decimal import Decimal
 
+from convertfrom.errors import ConversionError
+
 
 UNIT_MAP = {
     ('m', 'meter', 'meters'): Decimal(1),
@@ -23,4 +25,4 @@ def find_multiplier(unit):
     for key, value in UNIT_MAP.items():
         if unit == key or (isinstance(key, (tuple, list)) and unit in key):
             return value
-    raise KeyError(unit)
+    raise ConversionError('Unit {!r} could not be recognized')

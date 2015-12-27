@@ -17,10 +17,8 @@ def convert(args):
 def main():
     try:
         print(convert(sys.argv[1:]))
-    except KeyError as e:
-        exit('Unit "{}" not recognized.'.format(e.args[0]))
     except Exception as e:
-        exit(e.message)
+        exit(e)
 
 
 if __name__ == '__main__':  # pragma: no cover
